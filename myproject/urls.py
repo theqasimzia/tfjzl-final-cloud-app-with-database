@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
+from onlinecourse import views as onlinecourse_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('onlinecourse/', include('onlinecourse.urls')),
+    path('', onlinecourse_views.home, name='home'),  # Add this line
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
